@@ -60,18 +60,7 @@
             <input type="submit" value="Enviar">
         </fieldset>
 
-
-
-
-
     </form>
-
-
-
-
-
-
-
 
 </body>
 </html>

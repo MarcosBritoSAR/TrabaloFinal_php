@@ -1,0 +1,5 @@
+Para acessar o banco de dados, aconselho que dentro do phpmyadmin crie outro banco com o nome de
+"dataBase" e importe o banco de dados que está nesta pasta.
+
+Em caso de dúvidas, acesse este vídeo https://youtu.be/mFI88qPAdJI;
+ou me chama no zap da cintia

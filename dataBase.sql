@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24/06/2023 às 23:01
+-- Tempo de geração: 26/06/2023 às 01:23
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `trabalhofinal`
+-- Banco de dados: `database`
 --
 
 -- --------------------------------------------------------
@@ -56,6 +56,13 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome`, `nome_companheiro`, `login`, `senha`, `email`, `data_nascimento`, `endereco`, `telefone`, `sexo`, `foto_do_usuario`) VALUES
+(1, 'marcos', 'walter white', 'marcos', '12345', 'teste@gmail.com', '0000-00-00', 'Rua adelina monteira', '40028922', '1', NULL);
+
+--
 -- Índices para tabelas despejadas
 --
 
@@ -80,7 +87,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
