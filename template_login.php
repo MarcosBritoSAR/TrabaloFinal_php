@@ -11,7 +11,7 @@
 
     <h1>Bem Vindo à special dates!</h1>
 
-    <form method="GET">
+    <form method="get">
         <label>Usuário:</label>
         <input type="text" name="usuario">
         <br />
@@ -30,26 +30,30 @@
 
     <?php
 
-    if (isset($_GET["usuario"]) && isset($_GET["senha"]) && $_GET["usuario"] != "") {
+    if (isset($_COOKIE['user'])) {
+        header("Location: template_home.php");
+        exit();
+    } else {
 
-        include "conexao.php";
+        if (isset($_GET["usuario"]) && isset($_GET["senha"]) && $_GET["usuario"] != '') {
 
-        $dados = consultarUser($_GET["usuario"]);
-        $_SESSION["user"] = $dados[0]["login"];
-        $_SESSION["password"] = $dados[0]["senha"];
+            include "conexao.php";
 
-        if (($_SESSION["user"] == $_GET["usuario"]) && ($_SESSION["password"] == $_GET["senha"])) {
-            echo "user logado";
-            header("Location: template_home.php");
-            exit();
-        } else {
-            echo "Usuário e Senha Inválidos" . "<br/>";
-        }
+            $dados = consultarUser($_GET["usuario"]);
+
+            $user = $dados[0]["login"];
+            $senha = $dados[0]["senha"];
+
+
+            if (($user == $_GET['usuario']) && ($senha == $_GET['senha'])) {
+                setcookie('user',$user,time()+3600);
+                header("Location: template_home.php");
+                exit();
+            } else {
+                echo "Usuário e Senha Inválidos" . "<br/>";
+            }
+        } 
     }
-
-
-
-
     ?>
 
 </body>

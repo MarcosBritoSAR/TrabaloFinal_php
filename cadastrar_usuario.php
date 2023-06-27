@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <form method="GET" action="template_home.php">
+    <form method="POST" action="uploadCadastro.php" enctype="multipart/form-data"> <!--o enctype Permite que eu envie arquivos-->
 
         <fieldset>
             <legend>CADASTRO DE USUÁRIO</legend>
@@ -59,7 +59,6 @@
             <br/>
             <input type="submit" value="Enviar">
         </fieldset>
-
     </form>
 
 </body>
