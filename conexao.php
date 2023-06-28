@@ -2,7 +2,7 @@
 $dbServer = "127.0.0.1";
 $dbUser = "root";
 $dbPassword = "";
-$db = "dataBase";
+$db = "database";
 
 $conexao = mysqli_connect($dbServer, $dbUser, $dbPassword, $db);
 
