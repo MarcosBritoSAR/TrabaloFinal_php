@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26/06/2023 às 01:23
+-- Tempo de geração: 27/06/2023 às 21:44
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `database`
 --
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `evento`
---
-
-CREATE TABLE `evento` (
-  `id` int(11) NOT NULL,
-  `data_registro` date DEFAULT NULL,
-  `data_lembrete` date DEFAULT NULL,
-  `nome` varchar(30) NOT NULL,
-  `id_usuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -56,28 +42,17 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuario`
---
-
-INSERT INTO `usuario` (`id`, `nome`, `nome_companheiro`, `login`, `senha`, `email`, `data_nascimento`, `endereco`, `telefone`, `sexo`, `foto_do_usuario`) VALUES
-(1, 'marcos', 'walter white', 'marcos', '12345', 'teste@gmail.com', '0000-00-00', 'Rua adelina monteira', '40028922', '1', NULL);
-
---
 -- Índices para tabelas despejadas
 --
-
---
--- Índices de tabela `evento`
---
-ALTER TABLE `evento`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `login` (`login`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `telefone` (`telefone`);
 
 --
 -- AUTO_INCREMENT para tabelas despejadas
@@ -87,17 +62,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restrições para tabelas despejadas
---
-
---
--- Restrições para tabelas `evento`
---
-ALTER TABLE `evento`
-  ADD CONSTRAINT `evento_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
