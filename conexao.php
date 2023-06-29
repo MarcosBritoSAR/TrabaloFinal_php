@@ -51,7 +51,7 @@ function busca($user){
 
 
     $sqlBuscar = "
-SELECT id, nome,nome_companheiro, data_nascimento, foto_do_usuario FROM usuario
+SELECT * FROM usuario
 where login = '$user'
 ";
 
