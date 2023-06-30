@@ -1,3 +1,14 @@
+let mensagem = document.getElementById('mensagem');
+mensagem.addEventListener("input", ()=>{
+    let valor = mensagem.value;
+    if(valor.length >= 501){
+        mensagem.value = valor.substring(0,500);
+        window.alert("MENSAGEM DEVE SER DE NO MÁXIMO 500 CARACTERES!")
+    }
+}
+
+);
+
 
 function exibirCadastroEvento() {
     let formulario = document.getElementsByClassName("cadastro")[0];
@@ -23,7 +34,6 @@ function gerarMensagem() {
         "A medida do amor é amar sem medida.",
         "Amar não é olhar um para o outro, é olhar juntos na mesma direção."
     ]
-    let mensagem = document.getElementById('mensagem');
 
     let indiceMensagem = Math.floor(Math.random()*MENSAGENS.length);
 

@@ -1,5 +1,5 @@
 <!--Vai receber os valores do banco de dados-->
-<?php 
+<?php
 require_once("../conexao.php");
 $result = array();
 if (isset($_COOKIE['user'])) {
@@ -14,7 +14,6 @@ if (isset($_COOKIE['user'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./src/script.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
@@ -102,7 +101,7 @@ if (isset($_COOKIE['user'])) {
             <span class="container-mensagem">
                 <label for="mensagem">Deixe uma mensagem!(Máximo de 500 caracteres)</label>
                 <br>
-                <textarea cols="50" rows="10" name="mensagem" id="mensagem"></textarea>
+                <textarea  cols="50" rows="10" name="mensagem" id="mensagem"></textarea>
             </span>
             <span class="bts-cadastro">
                 <button class="bt-cadastro" type="submit">Cadastrar</button>
@@ -114,6 +113,8 @@ if (isset($_COOKIE['user'])) {
         <button class="acoes" onclick="gerarMensagem()">Gerar mensagem!</button>
     </div>
 
+    <script defer src="./src/script.js"></script>
+    
 </body>
 
 </html>
