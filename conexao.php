@@ -44,7 +44,7 @@ where login = '$user'
     return $arrayReturn;
 }
 
-//Função somente para testes. inutil
+
 function busca($user){
     
     global $conexao;
@@ -64,7 +64,7 @@ where login = '$user'
 
     return $arrayReturn;
 }
-//------------------------------
+
 
 
 

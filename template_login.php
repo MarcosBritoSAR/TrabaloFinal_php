@@ -31,7 +31,7 @@
     <?php
 
     if (isset($_COOKIE['user'])) {
-        header("Location: template_home.php");
+        header("Location: page_home/home.php");
         exit();
     } else {
 
@@ -47,7 +47,7 @@
 
             if (($user == $_GET['usuario']) && ($senha == $_GET['senha'])) {
                 setcookie('user',$user,time()+3600);
-                header("Location: template_home.php");
+                header("Location: page_home/home.php");
                 exit();
             } else {
                 echo "Usuário e Senha Inválidos" . "<br/>";
