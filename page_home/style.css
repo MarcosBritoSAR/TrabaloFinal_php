@@ -75,3 +75,48 @@ ul li.item-menu a .icon>i {
    font-size: 25px;
    cursor: pointer;
 }
+
+.cadastro{
+    border: 5px solid #FF0077;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    /* max-width: fit-content; */
+    /* justify-content: center; */
+}
+
+.formulario-cadastro{
+    display: flex;
+    flex-direction: column;
+}
+
+
+#mensagem{
+    resize: none;
+}
+
+textarea{
+    font-size: inherit;
+}
+
+
+.bts-cadastro{
+    display: flex;
+    justify-content: center;
+} 
+
+.bts-cadastro button{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    max-width: 100px;
+    min-width: 100px;
+    min-height: 25px;
+}
+
+.acoes{
+    border-radius: 20px;
+    max-width: 100px;
+    min-height: 25px;
+}
