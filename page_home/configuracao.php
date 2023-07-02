@@ -68,8 +68,8 @@
     </nav>
 
     <section id="botao">
-        <a><input type="button" value="Editar informações"></a>
-        <a> <input type="button" value="Excluir Perfil"></a>
+        <a href="utilitarios/editUser.php"><input type="button" value="Editar informações"></a>
+        <a href="utilitarios/excluir/option.php"> <input type="button" value="Excluir Perfil"></a>
     </section>
 
     <style>

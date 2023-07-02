@@ -1,5 +1,5 @@
 <?php include "../conexao.php";
-include "../utilitarios.php";
+include "utilitarios/funcoes.php";
 
 if (!isset($_COOKIE['user'])) {
     include "../destroiLogin.php";
@@ -122,6 +122,7 @@ if (!isset($_COOKIE['user'])) {
     </section>
 
     <style>
+
         body {
             background-image: url('../img/2.png');
             background-size: cover;
@@ -137,9 +138,9 @@ if (!isset($_COOKIE['user'])) {
             background-image: url('<?php echo 'data:image/jpeg;base64,' . $imag; ?>');
             border-radius: 400px;
             border: 1px solid black;
-
+            background-position:50%;
             /*Faz com que a imagem se adapte ao molde*/
-            background-size: contain;
+            background-size: cover;
             background-repeat: no-repeat;
         }
 

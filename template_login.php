@@ -91,7 +91,7 @@
             cursor: pointer;
         }
         h2{
-            text-align: ;
+            text-align: center;
         }
     </style>
 
@@ -107,7 +107,7 @@
                 $user = $dados[0]["login"];
                 $senha = $dados[0]["senha"];
                 if (($user == $_GET['usuario']) && ($senha == $_GET['senha'])) {
-                    setcookie('user', $user, time() + 3600);
+                    setcookie('user', $user, time() + (3600*24));
                     header("Location: page_home/home.php");
                     exit();
                 } else {

@@ -45,8 +45,9 @@ where login = '$user'
 }
 
 
-function busca($user){
-    
+function busca($user)
+{
+
     global $conexao;
 
 
@@ -70,23 +71,52 @@ where login = '$user'
 
 function insertUser($name, $nameComp, $login, $password, $email, $dateNasc, $address, $phone, $sex, $jpgUser)
 {
-    
+
 
     global $conexao;
 
- $sqlGravar = "
+    $sqlGravar = "
      INSERT INTO usuario 
      (nome,nome_companheiro,login,senha,email,data_nascimento,endereco,telefone,sexo,foto_do_usuario)
      VALUES
     ('$name','$nameComp','$login','$password','$email','$dateNasc','$address','$phone','$sex','$jpgUser')
      ";
-try{
+    try {
 
-    mysqli_query($conexao,$sqlGravar);
-    
-
-} catch(mysqli_sql_exception $e){
- echo "ocorreu um erro. formulário incompleto ou usuario com dados repetidos.";
+        mysqli_query($conexao, $sqlGravar);
+    } catch (mysqli_sql_exception $e) {
+        echo "ocorreu um erro. formulário incompleto ou usuario com dados repetidos.";
+    }
 }
 
+function editUser($id, $name, $nameComp, $login, $password, $email, $dateNasc, $address, $phone, $sex, $jpgUser)
+{
+    global $conexao;
+
+    $sqlGravar = "
+     UPDATE usuario
+     SET nome = '$name', nome_companheiro = '$nameComp', login = '$login', senha = '$password', email = '$email', data_nascimento = '$dateNasc', endereco = '$address', telefone = '$phone', sexo = '$sex', foto_do_usuario = '$jpgUser'
+     WHERE id = $id";
+
+    try {
+        mysqli_query($conexao, $sqlGravar);
+    } catch (mysqli_sql_exception $e) {
+        echo "Ocorreu um erro. Formulário incompleto ou usuário com dados repetidos. " . $e->getMessage();
+    }
+}
+
+function excluirUser($id)
+{
+    
+    global $conexao;
+
+    $sqlGravar = "
+    DELETE FROM usuario
+    WHERE id = $id;";
+
+    try {
+        mysqli_query($conexao, $sqlGravar);
+    } catch (mysqli_sql_exception $e) {
+        echo "Ocorreu um erro. Formulário incompleto ou usuário com dados repetidos. " . $e->getMessage();
+    }
 }

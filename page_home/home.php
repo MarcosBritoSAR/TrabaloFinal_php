@@ -100,7 +100,8 @@
             background-image: url('<?php echo 'data:image/jpeg;base64,' . $imageData;?>');
             border-radius: 100px;
             /*Faz com que a imagem se adapte ao molde*/
-            background-size: contain;
+            background-size:cover;
+            background-position:50%;
             background-repeat: no-repeat;
         }
         body{
