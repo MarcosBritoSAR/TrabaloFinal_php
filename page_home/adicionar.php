@@ -78,7 +78,7 @@ if (isset($_COOKIE['user'])) {
     <h1 style="text-align: center">adicionar</h1>
 
     <div class="cadastro">
-        <form class="formulario-cadastro" action="cadastrar_evento.php" method="post">
+        <form class="formulario-cadastro" action="cadastrar_evento.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id_usuario" value="<?php echo $result[0]['id']; ?>">
 
             <span>
@@ -110,6 +110,16 @@ if (isset($_COOKIE['user'])) {
                 <br>
                 <textarea  cols="50" rows="10" name="mensagem" id="mensagem"></textarea>
             </span>
+            <span class="upload">
+                <label for="arquivo">Deseja salvar algum arquivo para essa data?
+                    <h1>
+                        <i class="bi bi-upload botao-upload "></i>
+                        <input type="file" name="arquivo[]" id="arquivo" multiple="multiple">
+                    </h1>
+                </label>
+                    
+            </span>
+
             <span class="bts-cadastro">
                 <button class="bt-cadastro" type="submit">Cadastrar</button>
                 <button class="bt-limpar" type="reset">Limpar</button>
@@ -125,7 +135,6 @@ if (isset($_COOKIE['user'])) {
             background-image: url("../img/3.png");
 
         }
-
         .cadastro {
             width: 500px;
             margin: 0 auto;
@@ -133,13 +142,20 @@ if (isset($_COOKIE['user'])) {
             border-radius: 10px;
             padding: 20px;
         }
-
+        
+        .upload,
         .formulario-cadastro {
             display: flex;
             flex-direction: column;
         }
 
+        .upload{
+            text-align:center;
+        }
 
+        .upload h1{
+            padding-top: 10px;
+        }
         .formulario-cadastro span {
             margin-bottom: 10px;
         }
@@ -152,13 +168,18 @@ if (isset($_COOKIE['user'])) {
         .formulario-cadastro input[type="text"],
         .formulario-cadastro input[type="date"],
         .formulario-cadastro input[type="number"],
+        .formulario-cadastro input[type="file"],
         .formulario-cadastro textarea {
             width: 100%;
             padding: 5px;
             border-radius: 4px;
             border: 1px solid #ccc;
         }
-
+        .formulario-cadastro input[type="file"]{
+            display:none ;
+        }
+        
+        
         .container-mensagem {
             margin-top: 10px;
         }
@@ -167,6 +188,11 @@ if (isset($_COOKIE['user'])) {
             display: flex;
             justify-content: flex-end;
             margin-top: 10px;
+        }
+        .botao-upload{
+            height: 30px;
+            width: 30px;
+            padding: 10px;
         }
 
         .bt-cadastro,
