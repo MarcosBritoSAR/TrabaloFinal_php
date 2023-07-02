@@ -83,12 +83,12 @@ if (isset($_COOKIE['user'])) {
 
             <span>
                 <label for="nome">Ocasião</label>
-                <input type="text" name="name">
+                <input type="text" name="name" required>
             </span>
 
             <span>
                 <label for="data-inicio">Data de inicio</label>
-                <input type="date" name="data-inicio">
+                <input type="date" name="data-inicio" required>
             </span>
 
             <span>
