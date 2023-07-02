@@ -26,19 +26,27 @@ if (mysqli_query($conexao, $query)) {
     $query = "SELECT id FROM evento WHERE id_usuario='$id_usuario' ORDER BY id DESC";
     $resultado = mysqli_query($conexao, $query);
     $id_evento = mysqli_fetch_row($resultado);
-    for ($i=0; $i <$totalArquivos ; $i++) { 
+    for ($i = 0; $i < $totalArquivos; $i++) {
 
-        $caminho = $_FILES['arquivo']['tmp_name'][$i];
-        $arquivo = file_get_contents($caminho);
-        $arquivo = addslashes($arquivo);
+        $tiposPermitidos = array('.mp4', '.jpg', '.png');
 
-        $query= "INSERT INTO arquivo (arquivo, id_evento) VALUES ('$arquivo', '$id_evento[0]')" ;
+        $tipoDoArquivo = strrchr($_FILES['arquivo']['name'][$i], '.');
 
-        if(mysqli_query($conexao, $query)){
-            header('Location: home.php');
-        }else{
-            echo mysqli_error($conexao);
-            echo "<a href='home.php' >Houve erro ao salvar os arquivos :(</a>";
+        if (in_array($tipoDoArquivo, $tiposPermitidos)) {
+
+
+            $caminho = $_FILES['arquivo']['tmp_name'][$i];
+            $arquivo = file_get_contents($caminho);
+            $arquivo = addslashes($arquivo);
+
+            $query = "INSERT INTO arquivo (arquivo, id_evento) VALUES ('$arquivo', '$id_evento[0]')";
+
+            if (mysqli_query($conexao, $query)) {
+                header('Location: home.php');
+            } else {
+                echo mysqli_error($conexao);
+                echo "<a href='home.php' >Houve erro ao salvar os arquivos :(</a>";
+            }
         }
     }
 
