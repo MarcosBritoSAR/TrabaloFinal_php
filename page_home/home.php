@@ -133,9 +133,9 @@
         #foto {
             position: absolute;
             margin-top: 10px;
-            right: 40px;
-            width: 150px;
-            height: 150px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
             background-image: url('<?php echo 'data:image/jpeg;base64,' . $imageData; ?>');
             border-radius: 100px;
             /*Faz com que a imagem se adapte ao molde*/
