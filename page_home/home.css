@@ -1,0 +1,119 @@
+.container{  
+    margin-bottom: 5px;
+    font-size: 30px;
+    font-family: "Arial Narrow", sans-serif;
+    padding: 10px 2%;
+
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top: 200px;
+    left: 70.5%;
+    text-align: center;
+    border-radius: 5px solid black;
+    background-color: rgb(255, 000, 127, 0.5);
+    border-radius: 20px;
+    width: 40%;
+
+}
+fieldset{
+    font-family: "Arial Narrow", sans-serif;
+    background: #e30569 ;
+
+}
+.event-carousel{
+    margin-top: 10px;
+}
+/* estilizando os botões proximos e anterior */
+.event-gallery button{
+    font-size: 20px; 
+}
+.event-gallery .nav-button {
+    /* Estilos padrão para os botões */
+    background-color: #f3c0dc;
+    color: #070707;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .event-gallery .nav-button:hover {
+    /* Estilos quando o mouse está sobre o botão */
+    background-color: #a6a0a0;
+  }
+
+  /* estilização do quadro de lista de datas especiais */
+#lista {
+    color: #070707;
+    border-bottom: #180c0c;
+    font-size: 30px;
+
+    /* background:#e30569 ; */
+
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top: 101px;
+    left: 30%;
+    text-align: center;
+    border-radius: 5px solid black;
+    background-color: rgb(255, 000, 127, 0.5);
+    border-radius: 20px;
+    width: 40%;
+}
+
+.lista {
+	margin-bottom: 11px;
+    padding: 20px 2%;
+    
+    
+}
+.options {
+    margin-top: 10px;
+  }
+  
+  
+  /* Estilizando os ícones de notificação */
+  .notification i {
+    color: #333;
+    font-size: 30px;
+  }
+  
+  .notification:hover i {
+    color: #d876a4;
+  }
+  
+  /* Estilizando os ícones de compartilhamento */
+  .share i {
+    color: #333;
+    font-size: 30px;
+  }
+  
+  .share:hover i {
+    color: #d876a4;
+  }
+
+  /* Estilo de fonte do conteúdo do Home */
+  
+    h2 {
+        font-family: "Arial Narrow", sans-serif;
+        font-weight: bold;
+      }
+    
+      
+      h3 {
+        font-family: "Arial Narrow", sans-serif;
+        font-size: 25px;
+        font-weight: normal;
+      }
+
+      p {
+        font-family: "Arial Narrow", sans-serif;
+        font-size: 20px;
+        font-weight: normal;
+      }
+    
+   
+      .nav-button {
+        font-family: "Arial Narrow", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+      }

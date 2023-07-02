@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -64,18 +65,56 @@
                     <span class="txt-link">configuração</span>
                 </a>
             </li>
-            
+
         </ul>
 
     </nav>
 
     <fieldset>
-        <h1 style="text-align: center">Bem Vindo <?php echo $_COOKIE['user'] ?></h1>
+        <h1 style="text-align: center">Bem Vindo
+            <?php echo $_COOKIE['user'] ?>
+        </h1>
     </fieldset>
 
     <div class="perfilPhoto" id="foto">
     </div>
 
+<!-- Conteúdo do Home -->
+    <section id="lista">
+        <div style="text-align: center">
+            <h2>Lista de Eventos Especiais</h2>
+            <ul id="dateList"></ul>
+        </div>
+    </section>
+
+    <div class="container" style="text-align: center">
+        <h2>Próximo Evento </h2>
+
+        <div class="event-gallery">
+            <button class="nav-button" id="previous-button">&#8249; Anterior</button>
+            <button class="nav-button" id="next-button">Próximo &#8250;</button>
+
+            <div class="event-carousel">
+
+                <div class="event">
+                    
+                    <h3>Titulo do Evento </h3>
+                    <p>Data do Evento </p>
+                    <img src="caminho/para/imagem1.jpg" alt="Imagem do Evento ">
+
+                    <div class="options">
+                        <a href="#" class="notification"><i class="fas fa-bell"></i></a>
+                        <a href="#" class="share"><i class="fas fa-share-alt"></i></a>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- Adicione mais eventos aqui -->
+        </div>
+    </div>
+
+    <!------------------------------------------------------------------------------------------------>
     <!--Vai receber os valores do banco de dados-->
     <?php $result = array();
 
@@ -97,15 +136,17 @@
             right: 40px;
             width: 150px;
             height: 150px;
-            background-image: url('<?php echo 'data:image/jpeg;base64,' . $imageData;?>');
+            background-image: url('<?php echo 'data:image/jpeg;base64,' . $imageData; ?>');
             border-radius: 100px;
             /*Faz com que a imagem se adapte ao molde*/
-            background-size:cover;
-            background-position:50%;
+            background-size: cover;
+            background-position: 50%;
             background-repeat: no-repeat;
         }
-        body{
-            background-image: url("../img/1.png");
+
+        body {
+            background-image: url("../img/fundo_home.jpg");
+            /* background-image: url("../img/1.png"); */
             background-size: cover;
         }
     </style>
