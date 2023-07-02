@@ -1,3 +1,11 @@
+<?php
+require("../../conexao.php");
+
+if (isset($_COOKIE['user'])) {
+    $result = array();
+    $result = busca($_COOKIE['user']);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,28 +17,28 @@
 
 <body>
 
-    <form method="POST" action="uploadCadastro.php" enctype="multipart/form-data"> <!--o enctype Permite que eu envie arquivos-->
+    <form method="POST" action="uploadEditUser.php" enctype="multipart/form-data"> <!--o enctype Permite que eu envie arquivos-->
 
         <fieldset>
-            <legend>CADASTRO DE USUÁRIO</legend>
+            <legend>Alterar dados do usuario</legend>
             <label>Nome:</label>
-            <input type="text" name="nome">
+            <input type="text" name="nome" value="<?php echo $result[0]['nome']; ?>">
             <br />
             <br />
             <label>Data de nascimento:</label>
-            <input type="date" name="data_nasc">
+            <input type="date" name="data_nasc" value="<?php echo $result[0]['data_nascimento']; ?>">
             <br />
             <br />
             <label>Endereço:</label>
-            <input type="text" name="endereco">
+            <input type="text" name="endereco" value="<?php echo $result[0]['endereco']; ?>">
             <br />
             <br />
             <label>Telefone:</label>
-            <input type="text" name="telefone">
+            <input type="text" name="telefone" value="<?php echo $result[0]['telefone']; ?>">
             <br />
             <br />
             <label>Email:</label>
-            <input type="text" name="email">
+            <input type="text" name="email" value="<?php echo $result[0]['email']; ?>">
             <br />
             <br />
             <label>Sexo:</label>
@@ -44,22 +52,26 @@
             <br />
             <br />
             <label>Nome de usuário:</label>
-            <input type="text" name="nome_usuario">
+            <input type="text" name="nome_usuario" value="<?php echo $result[0]['login']; ?>">
             <br />
             <br />
             <label>Senha:</label>
-            <input type="password" name="senha">
+            <input type="password" name="senha" value="<?php echo $result[0]['senha']; ?>">
             <br />
             <br />
             <label>Nome do/a parceiro (a):</label>
-            <input type="text" name="nome_parceiro">
+            <input type="text" name="nome_parceiro" value="<?php echo $result[0]['nome_companheiro']; ?>">
             <br />
             <br />
             <label>Insira uma foto de perfil:</label>
-            <input type="file" name="foto_perfil">
+            <input type="file" name="foto_perfil" />
             <br />
             <br />
-            <input type="submit" value="Enviar">
+            <?php
+            $img = base64_encode($result[0]['foto_do_usuario']);?>
+            <img src=<?php echo 'data:image/jpeg;base64,' . $img; ?>>
+
+            <input type="submit" value="Enviar" >
         </fieldset>
     </form>
 

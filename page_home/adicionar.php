@@ -64,6 +64,13 @@ if (isset($_COOKIE['user'])) {
                 </a>
             </li>
 
+            <li class="item-menu">
+                <a href="configuracao.php">
+                    <span class="icon"><i class="bi bi-gear-fill"></i></span>
+                    <span class="txt-link">configuração</span>
+                </a>
+            </li>
+
         </ul>
 
     </nav>
@@ -112,6 +119,85 @@ if (isset($_COOKIE['user'])) {
 
         <button class="acoes" onclick="gerarMensagem()">Gerar mensagem!</button>
     </div>
+
+    <style>
+        body {
+            background-image: url("../img/3.png");
+
+        }
+
+        .cadastro {
+            width: 500px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, rgba(255, 192, 203, 0.8), rgba(255, 192, 203, 0.5));
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .formulario-cadastro {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .formulario-cadastro span {
+            margin-bottom: 10px;
+        }
+
+        .formulario-cadastro label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .formulario-cadastro input[type="text"],
+        .formulario-cadastro input[type="date"],
+        .formulario-cadastro input[type="number"],
+        .formulario-cadastro textarea {
+            width: 100%;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .container-mensagem {
+            margin-top: 10px;
+        }
+
+        .bts-cadastro {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 10px;
+        }
+
+        .bt-cadastro,
+        .bt-limpar {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .bt-cadastro {
+            background-color: #007bff;
+            margin-right: 10px;
+        }
+
+        .bt-limpar {
+            background-color: #dc3545;      
+            margin-right: 23%;
+        }
+
+        .acoes {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
 
     <script defer src="./src/script.js"></script>
     

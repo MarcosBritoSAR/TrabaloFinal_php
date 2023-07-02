@@ -56,11 +56,25 @@
                     </a>
                 </li>
 
+                <li class="item-menu">
+                <a href="configuracao.php">
+                    <span class="icon"><i class="bi bi-gear-fill"></i></span>
+                    <span class="txt-link">configuração</span>
+                </a>
+            </li>
+
             </ul>
 
         </nav>
 
-        <h1 style="text-align: center">proximos</h1>
+        <h1 style="text-align: center">Eventos que virão a acontecer</h1>
+
+        <style>
+            body{
+            background-image: url("../img/1.png");
+            background-size: cover;
+        }
+        </style>
 </body>
 
 </html>

@@ -1,20 +1,19 @@
-<?php include "../conexao.php"; ?>
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>configuração</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
 
     <nav class="menu-lateral">
+
         <a href="../destroiLogin.php">
             <div class="deslogar">
                 <i class="bi bi-box-arrow-left"></i>
@@ -22,7 +21,6 @@
         </a>
 
         <ul>
-
             <li class="item-menu">
                 <a href="home.php">
                     <span class="icon"><i class="bi bi-house"></i></span>
@@ -64,53 +62,55 @@
                     <span class="txt-link">configuração</span>
                 </a>
             </li>
-            
+
         </ul>
 
     </nav>
 
-    <fieldset>
-        <h1 style="text-align: center">Bem Vindo <?php echo $_COOKIE['user'] ?></h1>
-    </fieldset>
+    <section id="botao">
+        <a href="utilitarios/editUser.php"><input type="button" value="Editar informações"></a>
+        <a href="utilitarios/excluir/option.php"> <input type="button" value="Excluir Perfil"></a>
+    </section>
 
-    <div class="perfilPhoto" id="foto">
-    </div>
-
-    <!--Vai receber os valores do banco de dados-->
-    <?php $result = array();
-
-    if (isset($_COOKIE['user'])) {
-        //Acessando o banco de dados
-        $result = busca($_COOKIE['user']);
-    }
-    ?>
-    <?php
-    if (isset($result)) {
-        //decodificando o arquivo .bin guardados no banco de dados
-        $imageData = base64_encode($result[0]['foto_do_usuario']);
-    }
-    ?>
     <style>
-        #foto {
-            position: absolute;
-            margin-top: 10px;
-            right: 40px;
-            width: 150px;
-            height: 150px;
-            background-image: url('<?php echo 'data:image/jpeg;base64,' . $imageData;?>');
-            border-radius: 100px;
-            /*Faz com que a imagem se adapte ao molde*/
+        body {
+            background-image: url("../img/5.jpg");
             background-size:cover;
-            background-position:50%;
-            background-repeat: no-repeat;
+           
         }
-        body{
-            background-image: url("../img/1.png");
-            background-size: cover;
+
+        #botao {
+
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10%;
+            right: 38%;
+        }
+
+        #botao input[type="button"]:hover {
+            border-radius: 40px;
+            width: 400px;
+            height: 150px;
+            margin: 20px;
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(255, 16, 240, 0.4);
+        }
+
+        #botao input[type="button"] {
+            border-radius: 40px;
+            width: 400px;
+            height: 150px;
+            margin: 20px;
+            font-size: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: rgb(256, 256, 256, 0.8);
+
         }
     </style>
-
-
 </body>
 
 </html>
