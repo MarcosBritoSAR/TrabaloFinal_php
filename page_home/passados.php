@@ -56,11 +56,31 @@
                     </a>
                 </li>
 
+                <li class="item-menu">
+                <a href="configuracao.php">
+                    <span class="icon"><i class="bi bi-gear-fill"></i></span>
+                    <span class="txt-link">configuração</span>
+                </a>
+            </li>
+
             </ul>
 
         </nav>
-
-        <h1 style="text-align: center">Passado</h1>
+        <style>
+            body{
+               
+            background-image: url("../img/1.png");
+            background-size: cover;
+            }
+            h1{
+                color:rgb(250,250,250);
+                
+            }
+       
+        
+        </style>
+[
+        <h1 style="text-align: center">Eventos que ja passaram</h1>]
 </body>
 
 </html>

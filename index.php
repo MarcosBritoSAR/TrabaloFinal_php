@@ -12,11 +12,4 @@
         $_SESSION["login"] = false;
     }
 
-
-
-
-
-
-
-
 ?>
