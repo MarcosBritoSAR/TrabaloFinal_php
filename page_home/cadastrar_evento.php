@@ -39,7 +39,7 @@ if (mysqli_query($conexao, $query)) {
             $arquivo = file_get_contents($caminho);
             $arquivo = addslashes($arquivo);
 
-            $query = "INSERT INTO arquivo (arquivo, id_evento) VALUES ('$arquivo', '$id_evento[0]')";
+            $query = "INSERT INTO arquivo (arquivo, id_evento, tipo) VALUES ('$arquivo', '$id_evento[0]', '$tipoDoArquivo')";
 
             if (mysqli_query($conexao, $query)) {
                 header('Location: home.php');
