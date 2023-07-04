@@ -1,8 +1,13 @@
 <?php include "../conexao.php";
 include "utilitarios/funcoes.php";
 $resultuser = busca($_COOKIE['user']);
-$resultEvent = buscaEvento($resultuser[0]['id']);
-$resultMidia = buscaMidia($resultEvent[0]['id']);
+
+
+if (!empty(buscaEvento($resultuser[0]['id']))) {
+    $resultEvent = buscaEvento($resultuser[0]['id']);
+    $resultMidia = buscaMidia($resultEvent[0]['id']);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -137,10 +142,10 @@ $resultMidia = buscaMidia($resultEvent[0]['id']);
                     <h2 style="font-family: Arial;">MENSAGEM:" <?php echo $resultEvent[$linha]['mensagem']; ?>"</h2>
 
                     <?php if (verificaCronograma($resultEvent[$linha]['data_lembrete'])) { ?>
-                        <h2 style='font-family: Arial'> faltam " <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']);?> " para o dia do evento</h2>
+                        <h2 style='font-family: Arial'> faltam " <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> " para o dia do evento</h2>
 
                     <?php } else { ?>
-                        <h2 style='font-family: Arial'> Ja se passaram " <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']);?> " que este evento occoreu</h2>
+                        <h2 style='font-family: Arial'> Ja se passaram " <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> " que este evento occoreu</h2>
                     <?php
                     } ?>
                 </div>
@@ -150,20 +155,25 @@ $resultMidia = buscaMidia($resultEvent[0]['id']);
             <!--Compartilhar-->
             <!-- Compartilhar no Twitter -->
             <div id="modulo3">
+            <i class="bi bi-share"></i>
                 <form action="utilitarios/compartilhar/twitter.php" method="POST">
                     <input type="hidden" value="<?php echo $resultEvent[$linha]['mensagem']; ?>" name="compartilha">
+                    <i class="bi bi-twitter"></i>
                     <input type="submit" value="Compartilhar mensagem no Twitter">
                 </form>
                 <!-- Compartilhar no WhatsApp -->
                 <form action="utilitarios/compartilhar/whatsapp.php" method="POST">
                     <input type="hidden" value="<?php echo $resultEvent[$linha]['mensagem']; ?>" name="compartilha">
+                    <i class="bi bi-whatsapp"></i>
                     <input type="submit" value="Compartilhar mensagem no WhatsApp">
                 </form>
             </div>
 
             <!--botoes editar e excluir-->
             <div id="modulo4">
+                <i class="bi bi-trash3"></i>
                 <a href=""><button type="button">Excluir evento</button></a>
+                <i class="bi bi-pencil"></i>
                 <a href=""><button type="button">Editar evento</button></a>
             </div>
 
@@ -217,11 +227,12 @@ $resultMidia = buscaMidia($resultEvent[0]['id']);
             left: 25%;
             padding: 0.5%;
             border-radius: 10px;
-            background-color: rgb(171, 78, 219, 0.5);
+            background-color: rgba(255, 0, 119, 0.7);
             font-size: 16px;
         }
 
         .details #modulo2 {
+            margin-top: 12px;
             font-size: 16px;
             font-family: Arial;
             position: fixed;
@@ -229,7 +240,7 @@ $resultMidia = buscaMidia($resultEvent[0]['id']);
             max-width: 50%;
             padding: 0.5%;
             border-radius: 10px;
-            background-color: rgb(171, 78, 219, 0.5);
+            background-color: rgba(255, 0, 119, 0.7);
             ;
 
         }
@@ -247,7 +258,7 @@ $resultMidia = buscaMidia($resultEvent[0]['id']);
         .details #modulo4 {
             font-family: Arial;
             position: fixed;
-            left: 64%;
+            left: 63.2%;
             margin-top: 130px;
             padding: 0.5%;
             border-radius: 10px;

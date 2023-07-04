@@ -105,15 +105,35 @@ function editUser($id, $name, $nameComp, $login, $password, $email, $dateNasc, $
 
 function excluirUser($id)
 {
-    
+    $eventos = buscaEvento($id);
+
+    echo $id;
+
     global $conexao;
-
-    $sqlGravar = "
-    DELETE FROM usuario
-    WHERE id = $id;";
-
     try {
-        mysqli_query($conexao, $sqlGravar);
+
+        //Excluindo a midia
+        for ($i = 0; $i < count($eventos); $i++) {
+            $sqlGravar = "
+    DELETE FROM arquivo
+    WHERE id_evento = " . $eventos[$i]['id'];
+            mysqli_query($conexao, $sqlGravar);
+        }
+
+        //excluindo os eventos
+        for ($i = 0; $i < count($eventos); $i++) {
+            $sqlGravar = "
+            DELETE FROM evento
+            WHERE id = " . $eventos[$i]['id'];
+            mysqli_query($conexao, $sqlGravar);
+        }
+        //por fim excluindo user
+        for ($i = 0; $i < 1; $i++) {
+            $sqlGravar = "
+                DELETE FROM usuario
+                WHERE id = $id";
+            mysqli_query($conexao, $sqlGravar);
+        }
     } catch (mysqli_sql_exception $e) {
         echo "Ocorreu um erro. Formulário incompleto ou usuário com dados repetidos. " . $e->getMessage();
     }

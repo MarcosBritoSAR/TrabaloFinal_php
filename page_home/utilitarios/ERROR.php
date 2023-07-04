@@ -44,7 +44,7 @@
   <div class="error-container">
     <h1>Aviso de Erro</h1>
     <p>Ocorreu um erro ao processar sua solicitação. Por favor, tente novamente mais tarde.</p>
-    <a href="/">Voltar à página inicial</a>
+    <a href="../home.php">Voltar à página inicial</a>
   </div>
 </body>
 </html>

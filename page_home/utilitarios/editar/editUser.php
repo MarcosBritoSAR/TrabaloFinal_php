@@ -1,5 +1,5 @@
 <?php
-require("../../conexao.php");
+require("../../../conexao.php");
 
 if (isset($_COOKIE['user'])) {
     $result = array();

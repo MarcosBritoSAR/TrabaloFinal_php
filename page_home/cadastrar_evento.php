@@ -51,17 +51,18 @@ try {
         if (mysqli_query($conexao, $query)) {
             if ($i === $totalArquivos - 1) {
                 header('Location: home.php');
-                exit(); // Encerrar o script após redirecionamento
+                exit(); // Encerrar o script dps do redirecionamento
             }
         } else {
-            echo mysqli_error($conexao);
-            echo "<a href='home.php'>Houve um erro ao salvar os arquivos :(</a>";
+          header("Location: utilitarios/ERROR.php");
+          exit();
         }
         
     }
 
 }else{
-    echo "<a href='home.php'>Houve um erro ao salvar os arquivos :(</a>";
+    header("Location: utilitarios/ERROR.php");
+    exit();
 }
 } catch (mysqli_sql_exception $e) {
     header("Location: utilitarios/ERROR.php");

@@ -1,5 +1,5 @@
 <?php
-require_once("../../conexao.php");
+require_once("../../../conexao.php");
 $result = array();
 $result = busca($_COOKIE['user']);
 
@@ -30,10 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         editUser($id, $name, $nameComp, $login, $password, $email, $dateNasc, $address, $phone, $sex, $jpgUser);
         echo "etapa 2 completa";
 
-        header("Location: ../home.php");
+        header("Location: ../../home.php");
     } else {
         echo "Dados Incompeltos";
     }
 } else {
-    echo "erro upload cadastro";
+    header("Location:../ERROR.php");
+    exit();
 }
