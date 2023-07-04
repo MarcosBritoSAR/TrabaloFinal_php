@@ -81,6 +81,33 @@
         </style>
 [
         <h1 style="text-align: center">Eventos que ja passaram</h1>]
+
+        <div class="event-gallery">
+        <?php
+        function buscarEventosPassados(){
+            
+        }
+        $proximosEventos = buscarEventosPassados();
+        
+        if (!empty($proximosEventos)) {
+            foreach ($proximosEventos as $evento) {
+                ?>
+                <div class="event">
+                    <h3><?php echo $evento['nome']; ?></h3>
+                    <p><?php echo $evento['data_lembrete']; ?></p>
+                    <p><?php echo $evento['mensagem']; ?></p>
+                    <!--<img src="<?php //echo $evento['caminho_imagem']; ?>" alt="Imagem do Evento">-->
+                    
+                    
+                </div>
+                <br/>
+                <?php
+            }
+        } else {
+            echo "<p>Nenhum evento próximo encontrado.</p>";
+        }
+        ?>
+    </div>
 </body>
 
 </html>

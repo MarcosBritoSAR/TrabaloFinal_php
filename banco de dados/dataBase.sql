@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/07/2023 às 22:38
+-- Tempo de geração: 03/07/2023 às 19:19
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -30,9 +30,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `arquivo` (
   `id` int(11) NOT NULL,
   `arquivo` blob NOT NULL,
-  `id_evento` int(11) NOT NULL
+  `id_evento` int(11) NOT NULL,
+  `tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `evento`
+--
 
 CREATE TABLE `evento` (
   `id` int(11) NOT NULL,
@@ -62,11 +68,6 @@ CREATE TABLE `usuario` (
   `sexo` char(1) DEFAULT NULL,
   `foto_do_usuario` longblob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuario`
---
-
 
 --
 -- Índices para tabelas despejadas
@@ -100,19 +101,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `arquivo`
 --
 ALTER TABLE `arquivo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `evento`
 --
 ALTER TABLE `evento`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para tabelas despejadas
