@@ -94,7 +94,7 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
     <section id="sectionTable">
         <title>eventos</title>
 
-        <table border="1px" style="text-align: center;">
+        <table border="2px" style="text-align: center;">
             <tr>
                 <th style="text-align: center;">Titulo</th>
                 <th style="text-align: center;">Data do evento</th>
@@ -190,9 +190,11 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
             left: 40%;
             top: 15%;
             padding: 1%;
-            background-color: rgb(171, 78, 219, 0.4);
+            /* background-color: rgb(171, 78, 219, 0.4); */
             border-radius: 10px;
-            font-family: Arial;
+            font-family:Arial, Helvetica, sans-serif;
+            /* background-color: deeppink; */
+            color:black;
 
         }
 
@@ -205,12 +207,12 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
 
         /* linha par tabela */
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color:white;
         }
 
         /* linha impar tabela */
         tr:nth-child(odd) {
-            background-color: #fff;
+            background-color: pink;
         }
 
         .details {
@@ -322,7 +324,7 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
         }
 
         tr:hover {
-            background-color: #f5f5f5;
+            background-color: deeppink;
         }
 
 

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Bem Vindo à Special Dates!</h1>
+
 
     <form method="get">
         <label>Usuário:</label>
@@ -26,33 +26,35 @@
 
     <style>
         body {
-            background-image: url("img/login.jpg");
-            background-size:cover;
-            font-family: Arial, sans-serif;
+            background-image: url(img/silhouetted-couple-sit-bench-autumn-tree-generative-ai.jpg);
+            background-size: cover;
+            margin: -auto;
+            
         }
 
-        h1 {
+        /* h1 {
             position: fixed;
             bottom:10%;
             left: 25%;
             text-align: center;
             font-size: 28px;
-            color: #ff4d4d;
+            color:deeppink;
             margin-top: 50px;
             font-size: 70px;
             font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif   ;
-        }
+        } */
 
         form {
             position: fixed;
-            top:8%;
+            top: 8%;
             left: 40%;
             width: 300px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: pink;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+           
         }
 
         label {
@@ -60,6 +62,10 @@
             font-size: 16px;
             color: #ff4d4d;
             margin-bottom: 5px;
+            font-family:Arial, Helvetica, sans-serif;
+            color:deeppink;
+            font-weight: bold;
+
         }
 
         input[type="text"],
@@ -69,38 +75,52 @@
             border: 1px solid #ff4d4d;
             border-radius: 4px;
             margin-bottom: 15px;
+            background-color: aliceblue;
+          
         }
 
         .botoes {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+        
+
         }
 
+        /*esse é o botao de entrar*/
         input[type="submit"] {
-            font-family: 'Courier New', Courier, monospace;
+            font-family:Arial, Helvetica, sans-serif;
             font-size: 15px;
             padding: 10px 35px;
             border: none;
             border-radius: 4px;
-            background-color: crimson;
-            color: #fff;
+            background-color:pink;
+            color:deeppink;
             cursor: pointer;
+            font-weight: bold;
+            
         }
 
+        /*esse é o botao de cadastrar*/
         a.button-link {
-            font-family: 'Courier New', Courier, monospace;
+            font-family:Arial, Helvetica, sans-serif;
             padding: 10px 20px;
             font-size: 15px;
             border: none;
             border-radius: 4px;
-            background-color:crimson;
-            color: #fff;
+            background-color:pink;
+            color:deeppink;
+            font-weight: bold;
             text-decoration: none;
             cursor: pointer;
         }
+
         h2{
             text-align: center;
+            color: deeppink;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
         }
     </style>
 
@@ -116,7 +136,7 @@
                 $user = $dados[0]["login"];
                 $senha = $dados[0]["senha"];
                 if (($user == $_GET['usuario']) && ($senha == $_GET['senha'])) {
-                    setcookie('user', $user, time() + (3600*24));
+                    setcookie('user', $user, time() + (3600 * 24));
                     header("Location: page_home/home.php");
                     exit();
                 } else {
