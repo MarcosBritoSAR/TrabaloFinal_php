@@ -120,7 +120,7 @@
                     header("Location: page_home/home.php");
                     exit();
                 } else {
-                    echo "<h2>Usuário e Senha Inválidos</h2>";
+                    echo "<h2 style = 'color:red'>Usuário e Senha Inválidos</h2>";
                 }
             }
         }

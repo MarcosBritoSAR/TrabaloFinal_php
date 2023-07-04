@@ -111,7 +111,7 @@ if (!isset($_COOKIE['user'])) {
                                     } else {
                                         echo "Outro";
                                     }; ?></div>
-            <h3>parceira</h3>
+            <h3>parceiro(a)</h3>
             <div class="apresenta"><?php echo $result[0]['nome_companheiro']; ?></div>
             <h3>email</h3>
             <div class="apresenta"><?php echo $result[0]['email']; ?></div>
