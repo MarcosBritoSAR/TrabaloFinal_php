@@ -30,3 +30,15 @@ function verificaCronograma($date)
         return false;
     }
 }
+
+function theDay($date){
+    $date1 = new DateTime(date('Y/m/d'));
+    $date2 = new DateTime($date);
+
+    if($date1 == $date2){
+return true;
+    }else{
+        return false;
+    }
+
+}

@@ -8,6 +8,29 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
     $resultMidia = buscaMidia($resultEvent[0]['id']);
 }
 
+if(false){
+
+    $para = $resultUser[0]['email'];
+
+    for($i = 0; $i < count($resultEvent);$i++){
+        if(theDay($resultEvent[$i]['data_lembrete']) == true){
+            $assunto = $resultEvent[$i]['nome'];
+            $mensagem = 'Hoje é um dia muito especial';
+            $headers = 'De: especialDates@dates.com' . "\r\n" .
+                'Reply-To: especialDates@dates.com' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+        
+            // Envia o e-mail
+            if (mail($para, $assunto, $mensagem, $headers)) {
+                echo 'E-mail enviado com sucesso.';
+            } else {
+                echo 'Erro ao enviar o e-mail.';
+            }
+        }
+    }
+
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -107,14 +130,14 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
 
             //primeiro laço de repetição
             do {
-                ?>
-                
-                <tr value='<?php echo $linha; ?>'  onclick="showDetails(<?php echo $linha; ?>)">
-                    <td id="title-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['nome'];?></td>
+            ?>
+
+                <tr value='<?php echo $linha; ?>' onclick="showDetails(<?php echo $linha; ?>)">
+                    <td id="title-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['nome']; ?></td>
                     <td id="date-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['data_lembrete'] ?></td>
                 </tr>
 
-                <?php
+            <?php
                 $linha++;
             } while (isset($resultEvent[$linha]['id']));
             ?>
@@ -128,10 +151,10 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
 
 
     do {
-        ?>
+    ?>
         <div id="details-<?php echo $linha; ?>" class="details">
             <!--botoes compartilhar-->
-    
+
             <div id="modulo1">
                 <h2 style="font-family: Arial;">Título:
                     <?php echo $resultEvent[$linha]['nome']; ?>
@@ -139,17 +162,17 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
                 <h2 style="font-family: Arial;">Data:
                     <?php echo $resultEvent[$linha]['data_lembrete'] ?>
                 </h2>
-    
+
                 <div id="modulo2">
                     <h2 style="font-family: Arial;">MENSAGEM:
                         <?php echo $resultEvent[$linha]['mensagem']; ?>
                     </h2>
-    
+
                     <?php if (verificaCronograma($resultEvent[$linha]['data_lembrete'])) { ?>
                         <h2 style='font-family: Arial'> faltam
                             <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> para o dia do evento
                         </h2>
-    
+
                     <?php } else { ?>
                         <h2 style='font-family: Arial'> Ja se passaram
                             <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> que este evento ocorreu
@@ -157,8 +180,8 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
                     <?php } ?>
                 </div>
             </div>
-    
-    
+
+
             <!--Compartilhar-->
             <!-- Compartilhar no Twitter -->
             <div id="modulo3">
@@ -175,9 +198,9 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
                     <input type="submit" value="Compartilhar mensagem no WhatsApp">
                 </form>
             </div>
-    
+
             <!--botoes editar e excluir-->
-    
+
             <div id="modulo4">
                 <i class="bi bi-trash3"></i>
                 <a href="./utilitarios/excluir/excluirEvento.php?id_evento=<?php echo $resultEvent[$linha]['id']; ?>">
@@ -189,7 +212,7 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
                 </a>
             </div>
         </div>
-        <?php
+    <?php
         $linha++;
     } while (isset($resultEvent[$linha]['id']));
     ?>
@@ -203,9 +226,9 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
             padding: 1%;
             /* background-color: rgb(171, 78, 219, 0.4); */
             border-radius: 10px;
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             /* background-color: deeppink; */
-            color:black;
+            color: black;
 
         }
 
@@ -218,7 +241,7 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
 
         /* linha par tabela */
         tr:nth-child(even) {
-            background-color:white;
+            background-color: white;
         }
 
         /* linha impar tabela */
