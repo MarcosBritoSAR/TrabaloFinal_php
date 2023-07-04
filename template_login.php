@@ -26,18 +26,27 @@
 
     <style>
         body {
-            background-color: rgb(255, 16, 240,0.3);
+            background-image: url("img/login.jpg");
+            background-size:cover;
             font-family: Arial, sans-serif;
         }
 
         h1 {
+            position: fixed;
+            bottom:10%;
+            left: 25%;
             text-align: center;
             font-size: 28px;
             color: #ff4d4d;
             margin-top: 50px;
+            font-size: 70px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif   ;
         }
 
         form {
+            position: fixed;
+            top:8%;
+            left: 40%;
             width: 300px;
             margin: 0 auto;
             padding: 20px;

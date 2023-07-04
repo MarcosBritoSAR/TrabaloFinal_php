@@ -67,8 +67,6 @@ where login = '$user'
 }
 
 
-
-
 function insertUser($name, $nameComp, $login, $password, $email, $dateNasc, $address, $phone, $sex, $jpgUser)
 {
 
@@ -119,4 +117,46 @@ function excluirUser($id)
     } catch (mysqli_sql_exception $e) {
         echo "Ocorreu um erro. Formulário incompleto ou usuário com dados repetidos. " . $e->getMessage();
     }
+}
+//---------------------------------
+function buscaEvento($id)
+{
+
+    global $conexao;
+
+
+    $sqlBuscar = "
+SELECT * FROM evento
+where id_usuario = '$id'
+";
+
+    $resultado = mysqli_query($conexao, $sqlBuscar);
+    $arrayReturn = array();
+
+    while ($return = mysqli_fetch_assoc($resultado)) {
+        $arrayReturn[] = $return;
+    }
+
+    return $arrayReturn;
+}
+//--------------------------------------------
+function buscaMidia($id)
+{
+
+    global $conexao;
+
+
+    $sqlBuscar = "
+SELECT * FROM arquivo
+where id_evento = '$id'
+";
+
+    $resultado = mysqli_query($conexao, $sqlBuscar);
+    $arrayReturn = array();
+
+    while ($return = mysqli_fetch_assoc($resultado)) {
+        $arrayReturn[] = $return;
+    }
+
+    return $arrayReturn;
 }

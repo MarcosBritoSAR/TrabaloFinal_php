@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $jpgUser = file_get_contents($arquivoTemp);
             $jpgUser = addslashes($jpgUser);
         } else {
-            $jpgUser = NULL;
+            $jpgUser = file_get_contents('img/default.png'); // le o arquivo de imagem 
+            $jpgUser = addslashes($jpgUser);
         }
 
         insertUser($name, $nameComp, $login, $password, $email, $dateNasc, $address, $phone, $sex, $jpgUser);
