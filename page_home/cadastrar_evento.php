@@ -24,7 +24,7 @@ $query = "INSERT INTO evento (data_registro, data_lembrete, nome, id_usuario, me
 try {
     if($_FILES['arquivo']['name'][0]!= NULL){
 
-        mysqli_query($conexao, $query);
+    mysqli_query($conexao, $query);
         
     $totalArquivos = count($_FILES['arquivo']['name']);
 
@@ -59,10 +59,12 @@ try {
         }
         
     }
+    mysqli_query($conexao, $query);
+    header('Location: home.php');
 
 }else{
-    header("Location: utilitarios/ERROR.php");
-    exit();
+    mysqli_query($conexao, $query);
+    header('Location: home.php');
 }
 } catch (mysqli_sql_exception $e) {
     header("Location: utilitarios/ERROR.php");

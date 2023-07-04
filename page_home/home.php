@@ -72,7 +72,9 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
 
 
     <fieldset id="bemvindo">
-        <h1>Bem Vindo <?php echo $_COOKIE['user'] ?></h1>
+        <h1>Bem Vindo
+            <?php echo $_COOKIE['user'] ?>
+        </h1>
     </fieldset>
     <div class="perfilPhoto" id="foto">
     </div>
@@ -108,13 +110,13 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
                 if (!isset($resultEvent[$linha]['id'])) {
                     break;
                 }
-            ?>
+                ?>
 
-                <tr onclick="showDetails('<?php echo $linha; ?>')">
+                <tr value='<?php echo $linha; ?>' onclick="showDetails('<?php echo $linha; ?>')">
                     <td id="title-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['nome']; ?></td>
                     <td id="date-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['data_lembrete'] ?></td>
                 </tr>
-            <?php
+                <?php
                 $linha++;
             } while (true);
             ?>
@@ -130,23 +132,33 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
         if (!isset($resultEvent[$linha]['id'])) {
             break;
         }
-    ?>
+        ?>
         <div id="details-<?php echo $linha ?>" class="details">
             <!--botoes compartilhar-->
 
             <div id="modulo1">
-                <h2 style="font-family: Arial;">Título: <?php echo $resultEvent[$linha]['nome']; ?></h2>
-                <h2 style="font-family: Arial;">Data: <?php echo $resultEvent[$linha]['data_lembrete'] ?></h2>
+                <h2 style="font-family: Arial;">Título:
+                    <?php echo $resultEvent[$linha]['nome']; ?>
+                </h2>
+                <h2 style="font-family: Arial;">Data:
+                    <?php echo $resultEvent[$linha]['data_lembrete'] ?>
+                </h2>
 
                 <div id="modulo2">
-                    <h2 style="font-family: Arial;">MENSAGEM:" <?php echo $resultEvent[$linha]['mensagem']; ?>"</h2>
+                    <h2 style="font-family: Arial;">MENSAGEM:"
+                        <?php echo $resultEvent[$linha]['mensagem']; ?>"
+                    </h2>
 
                     <?php if (verificaCronograma($resultEvent[$linha]['data_lembrete'])) { ?>
-                        <h2 style='font-family: Arial'> faltam " <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> " para o dia do evento</h2>
+                        <h2 style='font-family: Arial'> faltam "
+                            <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> " para o dia do evento
+                        </h2>
 
                     <?php } else { ?>
-                        <h2 style='font-family: Arial'> Ja se passaram " <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> " que este evento occoreu</h2>
-                    <?php
+                        <h2 style='font-family: Arial'> Ja se passaram "
+                            <?php echo subtraiDate($resultEvent[$linha]['data_lembrete']); ?> " que este evento occoreu
+                        </h2>
+                        <?php
                     } ?>
                 </div>
             </div>
@@ -155,7 +167,7 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
             <!--Compartilhar-->
             <!-- Compartilhar no Twitter -->
             <div id="modulo3">
-            <i class="bi bi-share"></i>
+                <i class="bi bi-share"></i>
                 <form action="utilitarios/compartilhar/twitter.php" method="POST">
                     <input type="hidden" value="<?php echo $resultEvent[$linha]['mensagem']; ?>" name="compartilha">
                     <i class="bi bi-twitter"></i>
@@ -172,13 +184,20 @@ if (!empty(buscaEvento($resultuser[0]['id']))) {
             <!--botoes editar e excluir-->
             <div id="modulo4">
                 <i class="bi bi-trash3"></i>
-                <a href=""><button type="button">Excluir evento</button></a>
+                <a href="./utilitarios/excluir/excluirEvento.php?id_evento=<?php echo $resultEvent[$linha]['id']; ?>">
+                    <button id="excluir" type="button">Excluir evento</button>
+                </a>
                 <i class="bi bi-pencil"></i>
-                <a href=""><button type="button">Editar evento</button></a>
+                <a href="./utilitarios/editar/editarEvento.php?id_evento=<?php echo $resultEvent[$linha]['id']; ?>"><button type="button">Editar evento</button></a>
             </div>
-
-        </div>
-    <?php
+        <!-- </div>
+        <div id="confirmar-exclusao">
+            <h2 style="text-color: red;">Tem certeza que deseja excluir o evento?</h2>
+            <a href="./utilitarios/excluir/excluirEvento.php?id_evento=<?php echo $resultEvent[$linha]['id']; ?>">
+                <button><i class="bi bi-trash3"></i>Excluir</button>
+            </a>
+        </div> -->
+        <?php
         $linha++;
     } while (true);
     ?>
