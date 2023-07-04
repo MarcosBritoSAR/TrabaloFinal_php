@@ -159,6 +159,26 @@ where id_usuario = '$id'
 
     return $arrayReturn;
 }
+function buscaEventoEditavel($id)
+{
+
+    global $conexao;
+
+
+    $sqlBuscar = "
+SELECT * FROM evento
+where id= '$id'
+";
+
+    $resultado = mysqli_query($conexao, $sqlBuscar);
+    $arrayReturn = array();
+
+    while ($return = mysqli_fetch_assoc($resultado)) {
+        $arrayReturn[] = $return;
+    }
+
+    return $arrayReturn;
+}
 //--------------------------------------------
 function buscaMidia($id)
 {
