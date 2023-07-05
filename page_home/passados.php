@@ -112,11 +112,18 @@
         function buscarEventosPassados(){
             global $conexao;
             $currentDate = date('Y-m-d');
+            
+            $result = array();
+            if (isset($_COOKIE['user'])) {
+                //Acessando o banco de dados
+                $result = busca($_COOKIE['user']);
+            }
+
+            $id_usuario = $result[0]['id'];
 
             $sqlBuscar = "
-                    SELECT data_lembrete, nome FROM evento
-                    where data_lembrete < '$currentDate'
-                    ";
+                    SELECT data_lembrete, nome, mensagem FROM evento
+                    where data_lembrete < '$currentDate' AND id_usuario = '$id_usuario'";
             $resultado = mysqli_query($conexao, $sqlBuscar);
             return $resultado;
         }
