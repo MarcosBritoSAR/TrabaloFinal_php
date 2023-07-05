@@ -1,34 +1,29 @@
 <?php include "../conexao.php";
 include "utilitarios/funcoes.php";
 $resultuser = busca($_COOKIE['user']);
-
-
 if (!empty(buscaEvento($resultuser[0]['id']))) {
     $resultEvent = buscaEvento($resultuser[0]['id']);
     $resultMidia = buscaMidia($resultEvent[0]['id']);
 }
-
-if(false){
+if (false) {
 
     $para = $resultUser[0]['email'];
 
-    for($i = 0; $i < count($resultEvent);$i++){
-        if(theDay($resultEvent[$i]['data_lembrete']) == true){
+    for ($i = 0; $i < count($resultEvent); $i++) {
+        if (theDay($resultEvent[$i]['data_lembrete']) == true) {
             $assunto = $resultEvent[$i]['nome'];
             $mensagem = 'Hoje é um dia muito especial';
             $headers = 'De: especialDates@dates.com' . "\r\n" .
                 'Reply-To: especialDates@dates.com' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
-        
-            // Envia o e-mail
-            if (mail($para, $assunto, $mensagem, $headers)) {
-                echo 'E-mail enviado com sucesso.';
-            } else {
-                echo 'Erro ao enviar o e-mail.';
-            }
+        }
+        // Envia o e-mail
+        if (mail($para, $assunto, $mensagem, $headers)) {
+            echo 'E-mail enviado com sucesso.';
+        } else {
+            echo 'Erro ao enviar o e-mail.';
         }
     }
-
 }
 
 ?>
@@ -130,15 +125,17 @@ if(false){
 
             //primeiro laço de repetição
             do {
+                if (isset($resultEvent[$linha]['nome'])) {
             ?>
 
-                <tr value='<?php echo $linha; ?>' onclick="showDetails(<?php echo $linha; ?>)">
-                    <td id="title-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['nome']; ?></td>
-                    <td id="date-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['data_lembrete'] ?></td>
-                </tr>
+                    <tr value='<?php echo $linha; ?>' onclick="showDetails(<?php echo $linha; ?>)">
+                        <td id="title-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['nome']; ?></td>
+                        <td id="date-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['data_lembrete'] ?></td>
+                    </tr>
 
             <?php
-                $linha++;
+                    $linha++;
+                }
             } while (isset($resultEvent[$linha]['id']));
             ?>
 

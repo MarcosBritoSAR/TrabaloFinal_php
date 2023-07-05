@@ -64,10 +64,13 @@
     </form>
 
     <style>
+        body{
+            background-image:url("img/2.png");
+        }
         fieldset {
             border: none;
             padding: 20px;
-            background-color: #f2f2f2;
+            background-color:mediumpurple;
             border-radius: 10px;
             margin: 0 auto;
             width: 500px;
@@ -77,6 +80,7 @@
             font-weight: bold;
             font-size: 18px;
             margin-bottom: 10px;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         label {

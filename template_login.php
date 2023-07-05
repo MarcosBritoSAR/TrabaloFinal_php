@@ -22,6 +22,8 @@
             <input type="submit" value="Entrar">
             <a href="cadastrar_usuario.php" class="button-link">Cadastrar</a>
         </div>
+
+        
     </form>
 
     <style>
@@ -33,15 +35,7 @@
         }
 
         /* h1 {
-            position: fixed;
-            bottom:10%;
-            left: 25%;
-            text-align: center;
-            font-size: 28px;
-            color:deeppink;
-            margin-top: 50px;
-            font-size: 70px;
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif   ;
+            
         } */
 
         form {
@@ -56,6 +50,20 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
            
         }
+
+        /* h1{
+            position: fixed;
+            bottom:20%;
+            /* left: 25%; */
+            /* text-align: center;
+            font-size: 28px;
+            color:aliceblue;
+            margin-top: 50px;
+            font-size: 70px;
+            font-family:'Times New Roman', Times, serif;
+            background-color: ;
+            right: 30%;
+        } */ 
 
         label {
             display: block;
