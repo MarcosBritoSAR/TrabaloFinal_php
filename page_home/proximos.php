@@ -122,7 +122,7 @@
                     ?>
                     <div class="event">
                         <h3><?php echo $evento['nome']; ?></h3>
-                        <p><?php echo $evento['data_lembrete']; ?></p>
+                        <p><?php echo date("d/m/Y", strtotime($evento['data_lembrete'])); ?></p>
                         <?php
                         if (!empty($evento['mensagem'])){
                             ?>
