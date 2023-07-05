@@ -187,9 +187,9 @@ function buscaMidia($id)
 
 
     $sqlBuscar = "
-SELECT * FROM arquivo
-where id_evento = '$id'
-";
+    SELECT * FROM arquivo
+    where id_evento = '$id'
+    ";
 
     $resultado = mysqli_query($conexao, $sqlBuscar);
     $arrayReturn = array();

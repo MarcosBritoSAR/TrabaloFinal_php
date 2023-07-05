@@ -5,7 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <style>
+        .event-gallery {
+            display: flex;
+            justify-content: center;
+            margin: 30px;
+        }
+        .event {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            background: #ff7ad5;
+            width: 250px;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .event h3{
+            margin-bottom: 5px;
+        }
+        .event p {
+            margin-bottom: 5px;
+        }
+    </style>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
@@ -80,25 +102,45 @@
         
         </style>
 [
-        <h1 style="text-align: center">Eventos que ja passaram</h1>]
+        <h1 style="text-align: center; color: white;">Eventos passados</h1>]
 
         <div class="event-gallery">
         <?php
+        include "../conexao.php";
+        include "utilitarios/funcoes.php";
+
         function buscarEventosPassados(){
-            
+            global $conexao;
+            $currentDate = date('Y-m-d');
+
+            $sqlBuscar = "
+                    SELECT data_lembrete, nome FROM evento
+                    where data_lembrete < '$currentDate'
+                    ";
+            $resultado = mysqli_query($conexao, $sqlBuscar);
+            return $resultado;
         }
-        $proximosEventos = buscarEventosPassados();
+
+        $eventosPassados = buscarEventosPassados();
         
-        if (!empty($proximosEventos)) {
-            foreach ($proximosEventos as $evento) {
+        if (!empty($eventosPassados)) {
+            
+             foreach ($eventosPassados as $evento) {
                 ?>
                 <div class="event">
                     <h3><?php echo $evento['nome']; ?></h3>
                     <p><?php echo $evento['data_lembrete']; ?></p>
-                    <p><?php echo $evento['mensagem']; ?></p>
-                    <!--<img src="<?php //echo $evento['caminho_imagem']; ?>" alt="Imagem do Evento">-->
-                    
-                    
+                    <?php
+                    if (!empty($evento['mensagem'])){
+                        ?>
+                        <p><?php echo $evento['mensagem']; ?></p>
+                        <?php
+                    } else {
+                        ?>
+                        <p>Nenhuma mensagem gravada</p>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <br/>
                 <?php
