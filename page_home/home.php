@@ -130,7 +130,7 @@ if (false) {
 
                     <tr value='<?php echo $linha; ?>' onclick="showDetails(<?php echo $linha; ?>)">
                         <td id="title-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['nome']; ?></td>
-                        <td id="date-<?php echo $linha; ?>"><?php echo $resultEvent[$linha]['data_lembrete'] ?></td>
+                        <td id="date-<?php echo $linha; ?>"><?php echo date("d/m/Y", strtotime($resultEvent[$linha]['data_lembrete'])); ?></td>
                     </tr>
 
             <?php
